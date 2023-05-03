@@ -7,6 +7,14 @@ import {
 } from "@mui/material";
 import themes from "./themes";
 import Routes from "./routes";
+import { Flipper } from "react-flip-toolkit";
+import WithRouter from "./WithRouter";
+
+const Nimadir = WithRouter(({ router }) => (
+  <Flipper flipKey={router.location.pathname}>
+    <Routes />
+  </Flipper>
+));
 
 function App() {
   const customization = useSelector((state) => state.customization);
@@ -31,7 +39,7 @@ function App() {
     <StyledEngineProvider injectFirst>
       <ThemeProvider theme={themes(customization)}>
         <CssBaseline />
-        <Routes />
+        <Nimadir />
       </ThemeProvider>
     </StyledEngineProvider>
   );

@@ -42,15 +42,15 @@
   background-color: transparent;
   align-self: flex-end;
 }
-.temperature_round {
+/* .temperature_round {
   position: relative;
   font-size: 70px;
   margin-top: -60px;
-}
+} */
 .temperature_value {
   display: flex;
   font-size: 170px;
-  line-height: 150px;
+  line-height: 170px;
   color: white;
   font-family: "Comfortaa", cursive;
 }

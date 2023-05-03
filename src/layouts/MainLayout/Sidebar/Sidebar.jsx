@@ -5,9 +5,11 @@ import CitySelect from "./CitySelect/CitySelect";
 import { useSpring, animated, config } from "react-spring";
 import "./styles.css";
 import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
+import { Flipped } from "react-flip-toolkit";
 
 const Sidebar = () => {
-  const current = useSelector((state) => state.current);
+  const { current, currentLocation } = useSelector((state) => state);
 
   const { number } = useSpring({
     from: { number: 0 },
@@ -35,11 +37,16 @@ const Sidebar = () => {
           <IconButton sx={{ borderRadius: "10px" }}>
             <UilBell style={{ color: "#fff" }} />
           </IconButton>
-          <Avatar
-            src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-profiles/avatar-1.webp"
-            variant="square"
-            sx={{ borderRadius: "10px", cursor: "pointer" }}
-          />
+
+          <Link to="profile">
+            <Flipped flipId={"one"}>
+              <Avatar
+                src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-profiles/avatar-1.webp"
+                variant="square"
+                sx={{ borderRadius: "10px", cursor: "pointer" }}
+              />
+            </Flipped>
+          </Link>
         </Stack>
       </Grid>
 
@@ -50,16 +57,16 @@ const Sidebar = () => {
           )}
           <span className="temperature_round">°</span>
         </Typography>
-        {/* {currentLocation && (
+        {currentLocation && (
           <Typography
             className="current_location_name"
             display="block"
             noWrap
             variant="body"
           >
-            {currentLocation.data}
+            {currentLocation.loc}
           </Typography>
-        )} */}
+        )}
         <Typography className="temperature_description" variant="body">
           {current && current.weather && current.weather[0].description}
         </Typography>

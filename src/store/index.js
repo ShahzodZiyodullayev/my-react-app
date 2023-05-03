@@ -9,6 +9,7 @@ export default configureStore({
     daily: weatherReducer.daily,
     current: weatherReducer.current,
     locations: weatherReducer.locations,
+    currentLocation: weatherReducer.currentLocation,
     user: authReducer,
     customization,
   },
