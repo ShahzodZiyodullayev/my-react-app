@@ -33,6 +33,10 @@ const MainRoutes = [
         path: "/daily",
         element: <Daily />,
       },
+      {
+        path: "/a",
+        element: <Nimadir />,
+      },
     ],
   },
 ];

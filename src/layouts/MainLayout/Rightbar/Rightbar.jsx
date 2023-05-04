@@ -25,7 +25,7 @@ const Rightbar = ({ children }) => {
         p: { lg: 3, md: 3, sm: 2, xs: 1 },
       }}
     >
-      <Daily />
+      {/* <Daily /> */}
       <Grid>
         <Typography variant="h1">Hello World!</Typography>
         <Button onClick={eventHandler}>Hello world!</Button>

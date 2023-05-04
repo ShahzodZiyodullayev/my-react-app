@@ -59,6 +59,7 @@ const Daily = () => {
                 direction="column"
                 spacing={2}
                 sx={{
+                  minWidth: "75px",
                   width: "100%",
                   alignItems: "center",
                   borderRadius: "10px",
