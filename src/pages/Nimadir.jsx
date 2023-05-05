@@ -18,37 +18,37 @@ const Daily = () => {
 
   const ListItem = ({ index, value }) => {
     return (
-      <div>
-        <Flipped flipId={createCardFlipId(index)}>
-          <div className="listItem">
-            <Flipped flipId={`avatar-${index}`}>
-              <img
-                style={{ margin: "-15px", width: "40px" }}
-                src={`http://openweathermap.org/img/wn/${value?.weather[0]?.icon}@4x.png`}
-              />
-            </Flipped>
-          </div>
-        </Flipped>
-      </div>
+      <Flipped flipId={createCardFlipId(index)}>
+        <div className="listItem">
+          <Flipped flipId={`avatar-${index}`}>
+            <img
+              style={{ margin: "-15px", width: "40px" }}
+              src={`http://openweathermap.org/img/wn/${value?.weather[0]?.icon}@4x.png`}
+            />
+          </Flipped>
+        </div>
+      </Flipped>
     );
   };
 
   const ExpandedListItem = ({ index, value = daily[0] }) => {
     return (
-      <div style={{ position: "relative" }}>
-        <Flipped flipId={`avatar-${index}`}>
-          <img
-            style={{ margin: "-15px", width: "200px" }}
-            src={`http://openweathermap.org/img/wn/${value?.weather[0]?.icon}@4x.png`}
-          />
-        </Flipped>
-      </div>
+      <Flipped flipId={`avatar-${index}`}>
+        <img
+          style={{ margin: "-15px", width: "200px" }}
+          src={`http://openweathermap.org/img/wn/${value?.weather[0]?.icon}@4x.png`}
+        />
+      </Flipped>
     );
   };
 
   return (
     <div>
-      <Flipper flipKey={focused} spring="gentle">
+      <Flipper
+        flipKey={focused}
+        spring="gentle"
+        style={{ position: "relative" }}
+      >
         <Grid>
           <Box>
             <Typography variant="h3" textTransform="uppercase">
