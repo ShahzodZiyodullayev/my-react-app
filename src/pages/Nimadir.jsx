@@ -35,7 +35,7 @@ const Daily = () => {
 
   const ExpandedListItem = ({ index, value = daily[0] }) => {
     return (
-      <div>
+      <div style={{ position: "relative" }}>
         <Flipped flipId={`avatar-${index}`}>
           <img
             style={{ margin: "-15px", width: "200px" }}
@@ -92,7 +92,7 @@ const Daily = () => {
                     {moment(e.dt * 1000).format("ddd")}{" "}
                   </Typography>
 
-                  <Box>
+                  <Box sx={{ position: "relative" }}>
                     <ListItem index={i} key={i} value={e} />
                   </Box>
                   <Typography
