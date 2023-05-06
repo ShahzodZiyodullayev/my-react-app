@@ -78,7 +78,7 @@ const Daily = () => {
   };
 
   return (
-    <Flipper flipKey={focused} spring="gentle" style={{ position: "relative" }}>
+    <Flipper flipKey={[0, 1, 2, 3, 4, 5, 6, 7]} spring="gentle">
       <Grid>
         <Box sx={{ display: "flex", flexDirection: "column-reverse" }}>
           <Stack
@@ -121,7 +121,7 @@ const Daily = () => {
                   {moment(e.dt * 1000).format("ddd")}{" "}
                 </Typography>
 
-                <Box sx={{ position: "relative" }}>
+                <Box>
                   <ListItemIcon index={i} key={i} value={e} />
                 </Box>
 

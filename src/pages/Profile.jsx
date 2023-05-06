@@ -1,5 +1,5 @@
 import Grid from "@mui/material/Unstable_Grid2/Grid2";
-import { Avatar, Typography } from "@mui/material";
+import { Avatar } from "@mui/material";
 import React from "react";
 import { Flipped } from "react-flip-toolkit";
 
