@@ -5,7 +5,8 @@ const Rightbar = ({ children }) => {
     <Grid
       xs={12}
       sm={12}
-      md={8}
+      md={7}
+      lg={7.5}
       sx={{
         overflow: { md: "scroll" },
         overflowX: { md: "hidden" },

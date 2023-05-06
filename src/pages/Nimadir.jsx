@@ -12,13 +12,63 @@ const Daily = () => {
   const [selected, setSelected] = useState(daily[0]);
   const onClicks = (index) =>
     setFocused((prev) => (prev === index ? null : index));
-  const createCardFlipId = (index) => `listItem-${index}`;
 
-  console.log(daily);
-
-  const ListItem = ({ index, value }) => {
+  const ExpandedListItem = ({ index, value = daily[0] }) => {
     return (
-      <Flipped flipId={createCardFlipId(index)}>
+      <Stack
+        className="large-element"
+        direction="row"
+        alignItems="center"
+        sx={{ transition: "all 0.3s ease-in-out" }}
+      >
+        <Box>
+          <Flipped flipId={`listTemp-${index}`}>
+            <Typography
+              variant="subtitle1"
+              color="inherit"
+              sx={{
+                transition: "0ms",
+                textTransform: "uppercase",
+                fontSize: 50,
+                lineHeight: "50px",
+              }}
+            >
+              {Math.round(value?.temp?.day - 273.15)}°
+            </Typography>
+          </Flipped>
+          <Typography variant="h3" textTransform="uppercase">
+            {`${moment(value?.dt * 1000).format("ddd D")} ${moment(
+              value?.dt * 1000,
+            ).format("MMMM")}`}
+          </Typography>
+        </Box>
+        <Flipped flipId={`avatar-${index}`}>
+          <img
+            style={{ width: "148px" }}
+            src={`http://openweathermap.org/img/wn/${value?.weather[0]?.icon}@4x.png`}
+          />
+        </Flipped>
+      </Stack>
+    );
+  };
+
+  const ListItemTemp = ({ index, value }) => {
+    return (
+      <Flipped flipId={`listTemp-${index}`}>
+        <Typography
+          variant="subtitle1"
+          color="inherit"
+          sx={{ transition: "0ms" }}
+        >
+          {Math.round(value?.temp?.day - 273.15)}°
+        </Typography>
+      </Flipped>
+    );
+  };
+
+  const ListItemIcon = ({ index, value }) => {
+    return (
+      <Flipped flipId={`listItem-${index}`}>
         <div className="listItem">
           <Flipped flipId={`avatar-${index}`}>
             <img
@@ -31,31 +81,11 @@ const Daily = () => {
     );
   };
 
-  const ExpandedListItem = ({ index, value = daily[0] }) => {
-    return (
-      <Flipped flipId={`avatar-${index}`}>
-        <img
-          style={{ margin: "-15px", width: "200px" }}
-          src={`http://openweathermap.org/img/wn/${value?.weather[0]?.icon}@4x.png`}
-        />
-      </Flipped>
-    );
-  };
-
   return (
     <Flipper flipKey={focused} spring="gentle" style={{ position: "relative" }}>
       <Grid>
-        <Box>
-          <Typography variant="h3" textTransform="uppercase">
-            {moment(daily[0]?.dt * 1000).format("ddd D")}
-          </Typography>
-          <Typography variant="h3" textTransform="uppercase">
-            {moment(daily[0]?.dt * 1000).format("MMMM")}
-          </Typography>
-        </Box>
         <Box sx={{ display: "flex", flexDirection: "column-reverse" }}>
           <Stack
-            spacing={1}
             direction="row"
             justifyContent="space-between"
             sx={{
@@ -69,7 +99,7 @@ const Daily = () => {
                 direction="column"
                 spacing={2}
                 sx={{
-                  minWidth: "60px",
+                  minWidth: "75px",
                   width: "100%",
                   alignItems: "center",
                   borderRadius: "10px",
@@ -96,33 +126,18 @@ const Daily = () => {
                 </Typography>
 
                 <Box sx={{ position: "relative" }}>
-                  <ListItem index={i} key={i} value={e} />
+                  <ListItemIcon index={i} key={i} value={e} />
                 </Box>
-                <Typography
-                  variant="subtitle1"
-                  color="inherit"
-                  sx={{ transition: "0ms" }}
-                >
-                  {Math.round(e?.temp?.day - 273.15)}°
-                </Typography>
+
+                <ListItemTemp index={i} key={i} value={e} />
               </Stack>
             ))}
           </Stack>
-          <Stack
-            className="large-element"
-            direction="row"
-            alignItems="center"
-            sx={{ transition: "all 0.3s ease-in-out" }}
-          >
-            <Typography variant="h1" fontSize={150} fontWeight={100}>
-              23°
-            </Typography>
-            <ExpandedListItem
-              index={focused}
-              value={selected}
-              onClick={onClicks}
-            />
-          </Stack>
+          <ExpandedListItem
+            index={focused}
+            value={selected}
+            onClick={onClicks}
+          />
         </Box>
       </Grid>
     </Flipper>

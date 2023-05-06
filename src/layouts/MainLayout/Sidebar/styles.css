@@ -49,8 +49,8 @@
 } */
 .temperature_value {
   display: flex;
-  font-size: 170px;
-  line-height: 170px;
+  font-size: 100px;
+  line-height: 100px;
   color: white;
   font-family: "Comfortaa", cursive;
 }
