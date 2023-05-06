@@ -11,6 +11,7 @@ import { themeMode } from "../../../reducers/customization";
 import sun from "../../../assets/sun.json";
 import moon from "../../../assets/moon.json";
 import Lottie from "react-lottie";
+import Hailstone from "../../../assets/clouds.gif";
 
 const IOSSwitch = styled((props) => (
   <Switch focusVisibleClassName=".Mui-focusVisible" disableRipple {...props} />
@@ -134,6 +135,15 @@ const Sidebar = () => {
       </Grid>
 
       <Grid className="temperature">
+        <Grid sx={{ background: "transparent" }}>
+          <img
+            style={{ background: "transparent" }}
+            height="100px"
+            width="100px"
+            src={Hailstone}
+            alt=""
+          />
+        </Grid>
         <Typography className="temperature_value" variant="body">
           {current && current.temp && (
             <animated.div>{number.to((n) => n.toFixed())}</animated.div>
