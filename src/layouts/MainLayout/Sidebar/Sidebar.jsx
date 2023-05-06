@@ -99,7 +99,7 @@ const Sidebar = () => {
               noWrap
               variant="body"
             >
-              {currentLocation.loc}
+              {currentLocation.loc.split(",")[0]}
             </Typography>
           )}
           <Typography className="temperature_description" variant="body">

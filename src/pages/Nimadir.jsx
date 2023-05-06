@@ -8,10 +8,10 @@ import "./styles.css";
 
 const Daily = () => {
   const { daily, customization } = useSelector((state) => state);
-  const [focused, setFocused] = useState(0);
+  const [focused, setFocused] = useState(null);
   const [selected, setSelected] = useState(daily[0]);
   const onClicks = (index) =>
-    setFocused((prev) => (prev === index ? 0 : index));
+    setFocused((prev) => (prev === index ? null : index));
 
   const ExpandedListItem = ({ index, value = daily[0] }) => {
     return (
@@ -42,7 +42,7 @@ const Daily = () => {
             ).format("MMMM")}`}
           </Typography>
         </Box>
-        <Flipped flipId={`avatar-${index}`}>
+        <Flipped flipId={`avatar-${index}`} stagger="icon">
           <img
             style={{ width: "148px" }}
             src={`http://openweathermap.org/img/wn/${value?.weather[0]?.icon}@4x.png`}
@@ -68,7 +68,7 @@ const Daily = () => {
 
   const ListItemIcon = ({ index, value }) => {
     return (
-      <Flipped flipId={`avatar-${index}`}>
+      <Flipped flipId={`avatar-${index}`} stagger="icon">
         <img
           style={{ width: "40px" }}
           src={`http://openweathermap.org/img/wn/${value?.weather[0]?.icon}@4x.png`}
@@ -78,7 +78,7 @@ const Daily = () => {
   };
 
   return (
-    <Flipper flipKey={focused} spring="gentle">
+    <Flipper flipKey={focused} spring="veryGentle" decisionData={focused}>
       <Grid>
         <Box sx={{ display: "flex", flexDirection: "column-reverse" }}>
           <Stack
