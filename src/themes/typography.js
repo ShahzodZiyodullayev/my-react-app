@@ -38,7 +38,7 @@ export default function themeTypography(theme) {
     },
     h1: {
       fontSize: "2.125rem",
-      color: theme.background == "#222" ? "#fff" : "#000",
+      // color: theme.background == "#222" ? "#fff" : "#000",
       fontWeight: 700,
       color: theme?.styles?.primaryTextColor,
       transition: "all 400ms",

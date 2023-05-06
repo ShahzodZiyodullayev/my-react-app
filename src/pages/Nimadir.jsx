@@ -25,7 +25,7 @@ const Daily = () => {
           <Flipped flipId={`listTemp-${index}`}>
             <Typography
               variant="subtitle1"
-              color="inherit"
+              // color="inherit"
               sx={{
                 transition: "0ms",
                 textTransform: "uppercase",
@@ -78,7 +78,11 @@ const Daily = () => {
   };
 
   return (
-    <Flipper flipKey={focused} spring="veryGentle" decisionData={focused}>
+    <Flipper
+      flipKey={[0, 1, 2, 3, 4, 5, 6, 7]}
+      spring="veryGentle"
+      decisionData={[0, 1, 2, 3, 4, 5, 6, 7]}
+    >
       <Grid>
         <Box sx={{ display: "flex", flexDirection: "column-reverse" }}>
           <Stack
