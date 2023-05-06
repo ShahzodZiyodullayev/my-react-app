@@ -11,7 +11,7 @@ import { Flipper } from "react-flip-toolkit";
 import WithRouter from "./WithRouter";
 
 const Nimadir = WithRouter(({ router }) => (
-  <Flipper flipKey={router.location.pathname}>
+  <Flipper spring="gentle" flipKey={router.location.pathname}>
     <Routes />
   </Flipper>
 ));

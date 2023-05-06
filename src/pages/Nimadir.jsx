@@ -8,10 +8,10 @@ import "./styles.css";
 
 const Daily = () => {
   const { daily, customization } = useSelector((state) => state);
-  const [focused, setFocused] = useState(null);
+  const [focused, setFocused] = useState(0);
   const [selected, setSelected] = useState(daily[0]);
   const onClicks = (index) =>
-    setFocused((prev) => (prev === index ? null : index));
+    setFocused((prev) => (prev === index ? 0 : index));
 
   const ExpandedListItem = ({ index, value = daily[0] }) => {
     return (
@@ -78,7 +78,7 @@ const Daily = () => {
   };
 
   return (
-    <Flipper flipKey={[0, 1, 2, 3, 4, 5, 6, 7]} spring="gentle">
+    <Flipper flipKey={focused} spring="gentle">
       <Grid>
         <Box sx={{ display: "flex", flexDirection: "column-reverse" }}>
           <Stack
