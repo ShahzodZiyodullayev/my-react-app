@@ -68,15 +68,11 @@ const Daily = () => {
 
   const ListItemIcon = ({ index, value }) => {
     return (
-      <Flipped flipId={`listItem-${index}`}>
-        <div className="listItem">
-          <Flipped flipId={`avatar-${index}`}>
-            <img
-              style={{ margin: "-15px", width: "40px" }}
-              src={`http://openweathermap.org/img/wn/${value?.weather[0]?.icon}@4x.png`}
-            />
-          </Flipped>
-        </div>
+      <Flipped flipId={`avatar-${index}`}>
+        <img
+          style={{ width: "40px" }}
+          src={`http://openweathermap.org/img/wn/${value?.weather[0]?.icon}@4x.png`}
+        />
       </Flipped>
     );
   };
