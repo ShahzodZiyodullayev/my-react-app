@@ -2,7 +2,7 @@ import axios from "./API";
 
 const weatherService = {
   async getWeather(coordinates) {
-    // return;
+    return;
     const data = await axios.weatherBaseURL.get(coordinates);
 
     return data;

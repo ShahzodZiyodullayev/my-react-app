@@ -10,9 +10,9 @@ const Rightbar = ({ children }) => {
       sx={{
         overflow: { md: "scroll" },
         overflowX: { md: "hidden" },
-        height: { md: "inherit", xs: "auto" },
+        height: { md: "inherit", sm: "auto" },
         position: "relative",
-        p: { lg: 3, md: 3, sm: 2, xs: 1 },
+        p: { md: 2, sm: 2, xs: 1 },
       }}
     >
       {children}

@@ -5,7 +5,6 @@ const Loadable = (Component) => (props) => {
   return (
     <Suspense fallback={<Loader />}>
       <Component {...props} />
-      {/* <Loader /> */}
     </Suspense>
   );
 };

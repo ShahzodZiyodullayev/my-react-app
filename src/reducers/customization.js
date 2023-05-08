@@ -16,7 +16,7 @@ const initialState = (bool = whichMode) => {
         mode: "light",
         bool,
         styles: {
-          primaryTextColor: "#000",
+          primaryTextColor: "#010A19",
           background: "#fff",
         },
       };
@@ -26,7 +26,7 @@ const initialState = (bool = whichMode) => {
         bool,
         styles: {
           primaryTextColor: "#fff",
-          background: "#222",
+          background: "#010A19",
         },
       };
   }

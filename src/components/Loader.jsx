@@ -1,11 +1,12 @@
-import Snowfall from "react-snowfall";
-import snow from "../assets/snowflake.png";
 import { Box } from "@mui/material";
+import Lottie from "react-lottie";
+import data from "../assets/loader.json";
 
-const snowflake1 = document.createElement("img");
-snowflake1.src = snow;
-
-const images = [snowflake1];
+const defaultOptions = {
+  loop: true,
+  autoplay: true,
+  animationData: data,
+};
 
 const Loader = () => {
   return (
@@ -13,14 +14,18 @@ const Loader = () => {
       sx={{
         width: "100%",
         height: "100%",
-        backdropFilter: "blur(5px)",
         position: "fixed",
         top: 0,
         left: 0,
         zIndex: 9999,
+        background: "#fff",
       }}
     >
-      <Snowfall snowflakeCount={200} images={images} radius={[6, 20]} />;
+      <Lottie
+        options={defaultOptions}
+        width="10%"
+        style={{ pointerEvents: "none" }}
+      />
     </Box>
   );
 };
