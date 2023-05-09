@@ -213,9 +213,7 @@ export default function CitySelect(props) {
                     locations.map((item, i) => (
                       <ListItemButton key={i} sx={{ height: "35px" }}>
                         <ListItemText onClick={() => click(item)}>
-                          <Typography sx={{ fontFamily: "Comfortaa" }} noWrap>
-                            {item.label}
-                          </Typography>
+                          <Typography noWrap>{item.label}</Typography>
                         </ListItemText>
                       </ListItemButton>
                     ))

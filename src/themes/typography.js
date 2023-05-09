@@ -6,6 +6,7 @@
 export default function themeTypography(theme) {
   return {
     fontFamily: '"Comfortaa", cursive',
+    // fontFamily: '"Comfortaa", cursive',
     h6: {
       fontWeight: 500,
       fontSize: "0.75rem",
